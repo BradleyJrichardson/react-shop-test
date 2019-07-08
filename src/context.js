@@ -23,8 +23,8 @@ class ProductProvider extends React.Component {
     });
   };
 
-  handleDetail = () => {
-    console.log("hello from details");
+  handleDetail = id => {
+    console.log("hello from details" + id);
   };
 
   addToCart = () => {
