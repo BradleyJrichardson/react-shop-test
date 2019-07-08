@@ -1,19 +1,26 @@
 import React from "react";
 import Product from "./Product";
+import Title from "./Title";
+import { ProductConsumer } from "../context";
 
 export default class ProductList extends React.Component {
-  state = {
-    products: []
-  };
   render() {
     return (
       <React.Fragment>
         <div className="py-5">
           <div className="container">
-            <div className="row" />
+            <Title name="our" title="products" />
+            <div className="row">
+              <ProductConsumer>
+                {value => {
+                  return value.products.map(product => (
+                    <Product key={product.id} product={product} />
+                  ));
+                }}
+              </ProductConsumer>
+            </div>
           </div>
         </div>
-        <Product />
       </React.Fragment>
     );
   }
